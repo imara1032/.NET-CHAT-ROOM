@@ -23,7 +23,23 @@ namespace Chat_room
 
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp );
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+            Ip1.Text = GetLocalIp();
+            textBox5.Text= GetLocalIp();
+
         }
+
+        private string GetLocalIp() {
+            IPHostEntry host;
+            host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList) {
+                if (ip.AddressFamily == AddressFamily.InterNetwork) {
+                    return ip.ToString();
+                }
+            }
+            return "192.168.1.112";
+        }//get Ip address
 
         private void button1_Click(object sender, EventArgs e)
         {
