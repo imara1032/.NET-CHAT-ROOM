@@ -28,7 +28,26 @@ namespace Chat_room
             textBox5.Text= GetLocalIp();
 
         }
+        private void MessageCallBack(IAsyncResult aResult) {
+            try {
+                int size = sck.EndReceiveFrom(aResult,ref epLocal);
+                if (size>0) {
+                    byte[] recievedData=new byte[1464];
+                    recievedData = (byte[])aResult.AsyncState;
+                    ASCIIEncoding eENCODING = new ASCIIEncoding();
+                    string recievedMessage = eENCODING.GetString(recievedData);
+                    listMessages.Items.Add("Friend: " + recievedMessage);
 
+
+                }
+                byte[] buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote,
+                    new AsyncCallback(MessageCallBack), buffer);
+            }
+            catch(Exception exp) {
+                MessageBox.Show(exp.ToString());
+            }
+        }
         private string GetLocalIp() {
             IPHostEntry host;
             host = Dns.GetHostEntry(Dns.GetHostName());
