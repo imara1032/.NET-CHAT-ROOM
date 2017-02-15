@@ -30,10 +30,11 @@ namespace Chat_room
         }
         private void MessageCallBack(IAsyncResult aResult) {
             try {
-                int size = sck.EndReceiveFrom(aResult,ref epLocal);
+                int size = sck.EndReceiveFrom(aResult,ref epRemote);
                 if (size>0) {
                     byte[] recievedData=new byte[1464];
                     recievedData = (byte[])aResult.AsyncState;
+
                     ASCIIEncoding eENCODING = new ASCIIEncoding();
                     string recievedMessage = eENCODING.GetString(recievedData);
                     listMessages.Items.Add("Friend: " + recievedMessage);
@@ -57,8 +58,8 @@ namespace Chat_room
                     return ip.ToString();
                 }
             }
-            return "192.168.1.112";
-        }//get Ip address
+            return "192.168.1.116";
+        }//get Ip address// works fine
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,7 +70,7 @@ namespace Chat_room
                 
                 epRemote=new IPEndPoint(IPAddress.Parse(textBox5.Text), Convert.ToInt32(textBox4.Text
                     ));
-                sck.Bind(epRemote);
+                sck.Connect(epRemote);
 
                 byte[] buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack),buffer
@@ -80,7 +81,7 @@ namespace Chat_room
                 message.Focus();
 
             } catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("conect button! error");
             }
         }
 
