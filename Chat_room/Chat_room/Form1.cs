@@ -62,8 +62,41 @@ namespace Chat_room
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try {
+                epLocal = new IPEndPoint(IPAddress.Parse(Ip1.Text), Convert.ToInt32(textBox2.Text
+                    ));
+                sck.Bind(epLocal);   
+                
+                epRemote=new IPEndPoint(IPAddress.Parse(textBox5.Text), Convert.ToInt32(textBox4.Text
+                    ));
+                sck.Bind(epRemote);
 
+                byte[] buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack),buffer
+                    );
+                start.Text = "Connected";
+                start.Enabled = false;
+                send.Enabled = true;
+                message.Focus();
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.ToString());
+            }
         }
+
+        private void send_Click(object sender, EventArgs e)
+        {
+        try {
+                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+                byte[] msg = new byte[1500];
+                msg = enc.GetBytes(message.Text);
+                sck.Send(msg);
+                listMessages.Items.Add("Me: "+ message.Text);
+                message.Clear();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.ToString());
+            }
+}
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

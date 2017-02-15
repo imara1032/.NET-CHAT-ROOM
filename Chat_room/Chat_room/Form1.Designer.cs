@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Ip1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.port1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.message = new System.Windows.Forms.TextBox();
+            this.Ip1 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ip2 = new System.Windows.Forms.Label();
+            this.port2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.message = new System.Windows.Forms.TextBox();
             this.listMessages = new System.Windows.Forms.ListBox();
             this.start = new System.Windows.Forms.Button();
             this.send = new System.Windows.Forms.Button();
-            this.port1 = new System.Windows.Forms.Label();
-            this.port2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ip2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client 1";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "IP";
+            // 
+            // port1
+            // 
+            this.port1.AutoSize = true;
+            this.port1.Location = new System.Drawing.Point(17, 48);
+            this.port1.Name = "port1";
+            this.port1.Size = new System.Drawing.Size(37, 13);
+            this.port1.TabIndex = 2;
+            this.port1.Text = "PORT";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(99, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // Ip1
+            // 
+            this.Ip1.Location = new System.Drawing.Point(99, 19);
+            this.Ip1.Name = "Ip1";
+            this.Ip1.Size = new System.Drawing.Size(100, 20);
+            this.Ip1.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ip2);
@@ -72,26 +104,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Client 2";
             // 
-            // Ip1
+            // ip2
             // 
-            this.Ip1.Location = new System.Drawing.Point(99, 19);
-            this.Ip1.Name = "Ip1";
-            this.Ip1.Size = new System.Drawing.Size(100, 20);
-            this.Ip1.TabIndex = 0;
+            this.ip2.AutoSize = true;
+            this.ip2.Location = new System.Drawing.Point(15, 22);
+            this.ip2.Name = "ip2";
+            this.ip2.Size = new System.Drawing.Size(17, 13);
+            this.ip2.TabIndex = 6;
+            this.ip2.Text = "IP";
             // 
-            // textBox2
+            // port2
             // 
-            this.textBox2.Location = new System.Drawing.Point(99, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // message
-            // 
-            this.message.Location = new System.Drawing.Point(21, 277);
-            this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(236, 20);
-            this.message.TabIndex = 2;
+            this.port2.AutoSize = true;
+            this.port2.Location = new System.Drawing.Point(15, 48);
+            this.port2.Name = "port2";
+            this.port2.Size = new System.Drawing.Size(37, 13);
+            this.port2.TabIndex = 6;
+            this.port2.Text = "PORT";
             // 
             // textBox4
             // 
@@ -106,6 +135,13 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 4;
+            // 
+            // message
+            // 
+            this.message.Location = new System.Drawing.Point(21, 277);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(236, 20);
+            this.message.TabIndex = 2;
             // 
             // listMessages
             // 
@@ -134,42 +170,7 @@
             this.send.TabIndex = 5;
             this.send.Text = "Send";
             this.send.UseVisualStyleBackColor = true;
-            // 
-            // port1
-            // 
-            this.port1.AutoSize = true;
-            this.port1.Location = new System.Drawing.Point(17, 48);
-            this.port1.Name = "port1";
-            this.port1.Size = new System.Drawing.Size(37, 13);
-            this.port1.TabIndex = 2;
-            this.port1.Text = "PORT";
-            // 
-            // port2
-            // 
-            this.port2.AutoSize = true;
-            this.port2.Location = new System.Drawing.Point(15, 48);
-            this.port2.Name = "port2";
-            this.port2.Size = new System.Drawing.Size(37, 13);
-            this.port2.TabIndex = 6;
-            this.port2.Text = "PORT";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "IP";
-            // 
-            // ip2
-            // 
-            this.ip2.AutoSize = true;
-            this.ip2.Location = new System.Drawing.Point(15, 22);
-            this.ip2.Name = "ip2";
-            this.ip2.Size = new System.Drawing.Size(17, 13);
-            this.ip2.TabIndex = 6;
-            this.ip2.Text = "IP";
+            this.send.Click += new System.EventHandler(this.send_Click);
             // 
             // Form1
             // 
